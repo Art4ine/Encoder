@@ -1,5 +1,3 @@
-import com.sun.source.tree.CaseTree;
-
 import java.io.IOException;
 import java.util.Scanner;
 
