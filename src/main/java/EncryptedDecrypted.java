@@ -7,15 +7,14 @@ import java.util.Scanner;
 
 public class EncryptedDecrypted {
     public void encryptedDecrypted(boolean flag) throws IOException {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(flag ? "Введите путь к файлу для разшифровки":"Введите путь к файлу для зашифровки");
-        Path src = Path.of(scanner.nextLine());
+        ConsoleHelper.writeMessage(flag ? "Введите путь к файлу для разшифровки":"Введите путь к файлу для зашифровки");
+        Path src = Path.of(ConsoleHelper.readString());
 
-        System.out.println("Введите адрес куда записать результат");
-        Path dst = Path.of(scanner.nextLine());
+        ConsoleHelper.writeMessage("Введите адрес куда записать результат");
+        Path dst = Path.of(ConsoleHelper.readString());
 
-        System.out.println("Введите ключ");
-        int key = scanner.nextInt();
+        ConsoleHelper.writeMessage("Введите ключ");
+        int key =  ConsoleHelper.readInt();
 
         CaesarCipher caesarCipher = new CaesarCipher();
 

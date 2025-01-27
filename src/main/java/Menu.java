@@ -1,22 +1,21 @@
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.Scanner;
 
 public class Menu {
     public static void main(String[] args) throws IOException {
-        Scanner scanner = new Scanner(System.in);
-
         while (true) {
-            System.out.println("""
+            ConsoleHelper.writeMessage("""
                     Выполните действие введя его номер:\s
                     \
-                     [1] - зашифровать текст в файле с помощью ключа)\s
+                     [1] - зашифровать текст в файле с помощью ключа\s
                      [2] - разшифровать текст в файле с помощью ключа\s
                      [3] - подобрать ключ к шифровоному файлу с помощью bruterforce\s
                      [4] - разшифровать текст в файле с помощью статесчического анализа
                      [5] - выход
                     """);
 
-            int asnwer = scanner.nextInt();
+            int asnwer = ConsoleHelper.readInt();
             if (asnwer == 1) {
                 EncryptedDecrypted encryptedDecrypted = new EncryptedDecrypted();
 
@@ -26,7 +25,9 @@ public class Menu {
 
                 encryptedDecrypted.encryptedDecrypted(true);
             } else if (asnwer == 3) {
-                System.out.println("Section3");
+                Bruteforce bruteforce = new Bruteforce();
+
+                bruteforce.bruteforce();
             } else if (asnwer == 4) {
                 System.out.println("Section4");
             } else if (asnwer == 5) {

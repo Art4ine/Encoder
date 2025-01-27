@@ -25,7 +25,11 @@ public class ConsoleHelper {
         return Integer.parseInt(readString());
     }
 
-    public static Path buildFileName(String path, String suffix) { // Проверить вслучае если у адреса есть разширение то между именем и разширением добавить суффикс иначе добавить суффикс в конец
-        return Path.of("");
+    public static Path buildFileName(String path, String suffix) {
+        StringBuilder builder = new StringBuilder(path);
+
+        return path.lastIndexOf(".") >= 0 ?
+                Path.of(builder.insert(path.lastIndexOf("."), suffix).toString()) :
+                Path.of(builder.append(suffix).toString());
     }
 }
