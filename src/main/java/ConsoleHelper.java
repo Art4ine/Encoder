@@ -26,10 +26,12 @@ public class ConsoleHelper {
     }
 
     public static Path buildFileName(String path, String suffix) {
-        StringBuilder builder = new StringBuilder(path);
+        Path fullName = Path.of(path);
+        String fileName = fullName.getFileName().toString();
+        StringBuilder builder = new StringBuilder(fileName);
 
-        return path.lastIndexOf(".") >= 0 ?
-                Path.of(builder.insert(path.lastIndexOf("."), suffix).toString()) :
-                Path.of(builder.append(suffix).toString());
+        return fullName.getParent().resolve((fileName.lastIndexOf(".") >= 0 ?
+                builder.insert(fileName.lastIndexOf("."), suffix) :
+                builder.append(suffix)).toString());
     }
 }
