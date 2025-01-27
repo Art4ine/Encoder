@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Bruteforce {
+public class  Bruteforce {
 
     @SneakyThrows
     public void bruteforce() { // Сделать фоормотирование документа коректно собрать в хранилище строки в колекции а когда найден ключ перебрать колекцию и дешифровать каждую строку этим ключом и между строками добавить перенос строки и записать в документ
