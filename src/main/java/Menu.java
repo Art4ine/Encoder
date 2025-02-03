@@ -29,7 +29,9 @@ public class Menu {
 
                 bruteforce.bruteforce();
             } else if (asnwer == 4) {
-                System.out.println("Section4");
+                Parsing parsing = new Parsing();
+
+                parsing.parse();
             } else if (asnwer == 5) {
                 break;
             }

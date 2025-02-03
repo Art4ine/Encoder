@@ -8,17 +8,15 @@ import java.util.Scanner;
 public class EncryptedDecrypted {
     public void encryptedDecrypted(boolean flag) throws IOException {
         ConsoleHelper.writeMessage(flag ? "Введите путь к файлу для разшифровки":"Введите путь к файлу для зашифровки");
-        Path src = Path.of(ConsoleHelper.readString());
-
-        ConsoleHelper.writeMessage("Введите адрес куда записать результат");
-        Path dst = Path.of(ConsoleHelper.readString());
+        String src = ConsoleHelper.readString();
+        Path dst = ConsoleHelper.buildFileName(src, flag ? "_encrypt":"_decrypt");
 
         ConsoleHelper.writeMessage("Введите ключ");
         int key =  ConsoleHelper.readInt();
 
         CaesarCipher caesarCipher = new CaesarCipher();
 
-        try (BufferedReader reader = Files.newBufferedReader(src);
+        try (BufferedReader reader = Files.newBufferedReader(Path.of(src));
              BufferedWriter writer = Files.newBufferedWriter(dst)) {
 
             while (reader.ready()) {
